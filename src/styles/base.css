@@ -23,11 +23,11 @@
 }
 
 :root {
-  --col1: #33f20d;
-  --col2: #a855f7;
-  --col3: #f6f8f5;
-  --col4: #0a0f0a;
-  --col5: #132210;
+  --col1: oklch(0.84 0.28 141.55);
+  --col2: oklch(0.63 0.23 303.91);
+  --col3: oklch(0.98 0 0);
+  --col4: oklch(0.16 0.01 144.91);
+  --col5: oklch(0.23 0.04 140.32);
 }
 
 html {
@@ -36,6 +36,7 @@ html {
 }
 
 body {
+  font-family: 'SpaceGrotesk', sans-serif;
   background-color: var(--col4);
   color: var(--col3)
 }
@@ -44,10 +45,10 @@ main {
   background: var(--col4);
   background-image: radial-gradient(
     circle at 50% 15%,
-    rgba(51, 242, 13, .5) 0%, 
-    rgba(10, 15, 10, .5) 40%, 
-    rgba(10, 15, 10, .5) 
-    100%);
+    color-mix(in oklch, var(--col1) 50%, transparent) 0%,
+    color-mix(in oklch, var(--col4) 50%, transparent) 40%,
+    color-mix(in oklch, var(--col4) 50%, transparent) 100%
+    );
   height: 100vh;
 }
 
@@ -72,6 +73,7 @@ section {
   grid-template-columns: 1fr;
   max-width: 996px;
   margin-inline: auto;
+  padding-inline: 1rem;
 
   &.hero {
     text-align: center;
@@ -79,9 +81,20 @@ section {
   }
 }
 
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+
+}
+
 h1,h2,h3 {
-  font-family: 'SpaceGrotesk', sans-serif;
   color: var(--col3);
+}
+
+.brand {
+  font-size: 3.5rem;
 }
 
 .tinted {
@@ -99,12 +112,49 @@ h1,h2,h3 {
   padding: 2rem;
   background-image: radial-gradient(
     circle,
-    rgba(51, 242, 13, .5) 0%, 
-    rgba(10, 15, 10, 0) 65%, 
-    rgba(10, 15, 10, 0) 
-    100%);
+    color-mix(in oklch, var(--col1) 50%, transparent) 0%,
+    color-mix(in oklch, var(--col4) 0%, transparent) 65%
+    );
   transform: translateY(0);
   animation: floater 4s cubic-bezier(.31,0,.71,1) infinite alternate;
+}
+
+.btn {
+  padding: 0.25rem 1rem;
+  border-radius: 1.5rem;
+  border: 1px var(--col1) solid;
+  background-color: color-mix(in oklch, var(--col1) 15%, transparent);
+  color: var(--col1);
+  font-weight: 700;
+  min-height: 2rem;
+  width: fit-content;
+
+    &.cta {
+      background-color: var(--col1);
+      color: var(--col4);
+    }
+
+    &.icon {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: color-mix(in oklch, var(--col1) 50%, transparent);
+    }
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-wrapper {
+  width: 1rem;
+  height: 1rem;
+  overflow: hidden;
 }
 
 @keyframes floater {

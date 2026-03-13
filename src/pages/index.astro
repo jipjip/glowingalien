@@ -1,5 +1,8 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import Avatar from '@components/ui/avatar.astro';
+import PlayIcon from '@components/ui/icon-play.astro';
+import ListIcon from '@components/ui/icon-list.astro';
 ---
 
 <Layout>
@@ -10,7 +13,24 @@ import Layout from '@layouts/Layout.astro';
           <img src="/glowingalien-logo.svg" alt="GlowingAlien Logo" width="200" height="200">
         </div>
       </div>
-    	<h1>Glowing<span class="tinted">Alien</span></h1>
+      <div class="content-wrapper">
+        <button class="btn icon">
+          <div class="icon-wrapper">
+            <Avatar />
+          </div>INSTANT PLAY</button>
+      	<h1 class="brand">Glowing<span class="tinted">Alien</span></h1>
+        <p>Hi Earthling! I am <span class="tinted">Giddy.</span> And this is your friendly cosmic playground for free online games.</p>
+        <div class="button-wrapper">
+          <button class="btn icon cta">
+            <div class="icon-wrapper">
+              <PlayIcon/>
+            </div>START PLAYING</button>
+          <button class="btn icon secondary">
+            <div class="icon-wrapper">
+              <ListIcon/>
+            </div>Game List</button>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
