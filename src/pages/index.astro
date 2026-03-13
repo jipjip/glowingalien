@@ -1,36 +1,14 @@
 ---
+import '@styles/hero.css';
 import Layout from '@layouts/Layout.astro';
-import Avatar from '@components/ui/avatar.astro';
-import PlayIcon from '@components/ui/icon-play.astro';
-import ListIcon from '@components/ui/icon-list.astro';
+import Header from '@components/layouts/header.astro';
+import Hero from '@components/layouts/hero.astro';
+import About from '@components/layouts/about.astro';  
 ---
 
 <Layout>
-  <section class="hero">
-    <div class="cntr hero">
-      <div class="logo">
-        <div class="img-wrapper">
-          <img src="/glowingalien-logo.svg" alt="GlowingAlien Logo" width="200" height="200">
-        </div>
-      </div>
-      <div class="content-wrapper">
-        <button class="btn icon">
-          <div class="icon-wrapper">
-            <Avatar />
-          </div>INSTANT PLAY</button>
-      	<h1 class="brand">Glowing<span class="tinted">Alien</span></h1>
-        <p>Hi Earthling! I am <span class="tinted">Giddy.</span> And this is your friendly cosmic playground for free online games.</p>
-        <div class="button-wrapper">
-          <button class="btn icon cta">
-            <div class="icon-wrapper">
-              <PlayIcon/>
-            </div>START PLAYING</button>
-          <button class="btn icon secondary">
-            <div class="icon-wrapper">
-              <ListIcon/>
-            </div>Game List</button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Header/>
+  <Hero/>
+  <About/>
+  <footer>footer</footer>
 </Layout>

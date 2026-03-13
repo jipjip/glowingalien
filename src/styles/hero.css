@@ -1,0 +1,14 @@
+.hero {
+  padding-top: 0;
+
+  svg.giddy {
+    color: var(--col1);
+    .face {
+      fill: var(--col5);
+    }
+  }
+
+  .btn.top {
+    order: -1;
+  }
+}

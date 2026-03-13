@@ -32,13 +32,30 @@
 
 html {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.75;
 }
 
 body {
+  position: relative;
   font-family: 'SpaceGrotesk', sans-serif;
+  font-weight: 300;
   background-color: var(--col4);
-  color: var(--col3)
+  color: var(--col3);
+
+  &::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      0deg,
+      color-mix(in oklch, var(--col1) 20%, transparent) 0%,
+      color-mix(in oklch, var(--col4) 20%, transparent) 70%, 
+      color-mix(in oklch, var(--col4) 20%, transparent) 100%
+    );
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat:no-repeat;  }
 }
 
 main {
@@ -53,7 +70,7 @@ main {
 }
 
 section {
-  margin: 2rem 0;
+  padding-block: 2rem;
 }
 
 *, *::before, *::after {
@@ -71,6 +88,7 @@ section {
 .cntr {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 1rem;
   max-width: 996px;
   margin-inline: auto;
   padding-inline: 1rem;
@@ -89,21 +107,33 @@ section {
 
 }
 
+a {
+  text-decoration: none;
+  color: var(--col3);
+}
+
 h1,h2,h3 {
   color: var(--col3);
+  max-inline-size: 50ch;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.25;
 }
 
 .brand {
   font-size: 3.5rem;
+  line-height: 1.25;
 }
 
 .tinted {
   color: var(--col1);
-}
-
-.logo {
-  position: relative;
-  overflow: hidden;
 }
 
 .img-wrapper{

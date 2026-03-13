@@ -1,0 +1,32 @@
+---
+import Avatar from '@components/ui/avatar.astro';
+import PlayIcon from '@components/ui/icon-play.astro';
+import ListIcon from '@components/ui/icon-list.astro';
+---
+<section class="hero">
+    <div class="cntr hero">
+      <div class="logo">
+        <div class="img-wrapper">
+          <img src="/glowingalien-logo.svg" alt="GlowingAlien Logo" width="200" height="200">
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <h1 class="brand">Glowing<span class="tinted">Alien</span></h1>
+        <button class="btn icon top">
+          <div class="icon-wrapper">
+            <Avatar />
+          </div>INSTANT PLAY</button>
+        <p>Hi Earthling! I am <span class="tinted">Giddy.</span> And this is your friendly cosmic playground for free online games.</p>
+        <div class="button-wrapper">
+          <button class="btn icon cta">
+            <div class="icon-wrapper">
+              <PlayIcon/>
+            </div>START PLAYING</button>
+          <button class="btn icon secondary">
+            <div class="icon-wrapper">
+              <ListIcon/>
+            </div>Game List</button>
+        </div>
+      </div>
+    </div>
+  </section>
