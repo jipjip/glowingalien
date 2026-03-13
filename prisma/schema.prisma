@@ -1,0 +1,39 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" 
+}
+
+model Game {
+  id        Int     @id @default(autoincrement())
+  slug      String  @unique
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  scores   Score[]
+}
+
+model User {
+  id            Int   @id @default(autoincrement())
+  username      String   @unique
+  email         String   @unique
+  passwordHash  String
+  emailVerified Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  verificationToken String? // token voor verificatie
+  scores            Score[]
+}
+
+model Score {
+  id        Int     @id @default(autoincrement())
+  score     Int
+  createdAt DateTime @default(now())
+  userId    Int
+  gameId    Int
+  user      User    @relation(fields: [userId], references: [id])
+  game      Game    @relation(fields: [gameId], references: [id])
+}

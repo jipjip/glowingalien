@@ -1,0 +1,24 @@
+---
+import '@styles/base.css';
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="preload" href="/fonts/SpaceGrotesk300.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/SpaceGrotesk500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/SpaceGrotesk700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/glowingalien-logo.svg" />
+		<slot name="head" />
+	</head>
+	<body>
+		<slot name="skipnav" />
+		<slot name="header" />
+		<main id="main">
+			<a name="main-content" tabindex="-1"></a>
+			<slot />
+		</main>
+		<slot name="footer" />
+	</body>
+</html>

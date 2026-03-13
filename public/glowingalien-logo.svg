@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+
+    <!-- Deep space background -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0a0f1a"/>
+      <stop offset="100%" stop-color="#040608"/>
+    </radialGradient>
+
+    <!-- Skin gradient — soft grey-green -->
+    <radialGradient id="skinGrad" cx="42%" cy="38%" r="58%">
+      <stop offset="0%" stop-color="#c8d9c0"/>
+      <stop offset="55%" stop-color="#9fb89a"/>
+      <stop offset="100%" stop-color="#6a8a6a"/>
+    </radialGradient>
+
+    <!-- Head ambient glow -->
+    <radialGradient id="headGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7aff9a" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#7aff9a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Eye glow — left -->
+    <radialGradient id="eyeGlowL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a0ffcc" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#40e888" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#00c060" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Eye glow — right -->
+    <radialGradient id="eyeGlowR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a0ffcc" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#40e888" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#00c060" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Eye iris gradient — deep glossy -->
+    <radialGradient id="irisL" cx="38%" cy="32%" r="60%">
+      <stop offset="0%" stop-color="#1a3d2a"/>
+      <stop offset="60%" stop-color="#0a1f14"/>
+      <stop offset="100%" stop-color="#040e08"/>
+    </radialGradient>
+    <radialGradient id="irisR" cx="38%" cy="32%" r="60%">
+      <stop offset="0%" stop-color="#1a3d2a"/>
+      <stop offset="60%" stop-color="#0a1f14"/>
+      <stop offset="100%" stop-color="#040e08"/>
+    </radialGradient>
+
+    <!-- Pupil shine -->
+    <radialGradient id="shineL" cx="30%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="shineR" cx="30%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Overall outer glow filter -->
+    <filter id="outerGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.3  0 0 0 0 1  0 0 0 0 0.5  0 0 0 0.6 0" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Soft glow on eyes -->
+    <filter id="eyeBloom" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.4  0 0 0 0 1  0 0 0 0 0.6  0 0 0 0.8 0" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Subtle skin glow -->
+    <filter id="skinGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 1  0 0 0 0 0.4  0 0 0 0.25 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Star twinkle -->
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="200" fill="url(#bgGrad)"/>
+
+  <!-- Subtle star field -->
+  <g filter="url(#starGlow)" opacity="0.7">
+    <circle cx="48"  cy="62"  r="1.2" fill="white" opacity="0.6"/>
+    <circle cx="340" cy="45"  r="1"   fill="white" opacity="0.5"/>
+    <circle cx="370" cy="130" r="1.5" fill="white" opacity="0.7"/>
+    <circle cx="30"  cy="280" r="1"   fill="white" opacity="0.4"/>
+    <circle cx="360" cy="310" r="1.2" fill="white" opacity="0.6"/>
+    <circle cx="80"  cy="350" r="0.8" fill="white" opacity="0.5"/>
+    <circle cx="320" cy="370" r="1"   fill="white" opacity="0.4"/>
+    <circle cx="60"  cy="160" r="0.9" fill="white" opacity="0.5"/>
+    <circle cx="355" cy="200" r="1.1" fill="white" opacity="0.6"/>
+  </g>
+
+  <!-- Head ambient glow halo -->
+  <ellipse cx="200" cy="195" rx="115" ry="125" fill="url(#headGlow)"/>
+
+  <!-- ── HEAD ── -->
+  <!-- Main head shape: wide top, narrow pointy chin — classic grey proportions -->
+  <path d="
+    M 200 68
+    C 268 68, 318 108, 322 162
+    C 326 210, 310 248, 285 272
+    C 265 292, 238 308, 220 316
+    C 210 320, 200 322, 200 322
+    C 200 322, 190 320, 180 316
+    C 162 308, 135 292, 115 272
+    C 90 248, 74 210, 78 162
+    C 82 108, 132 68, 200 68
+    Z
+  " fill="url(#skinGrad)" filter="url(#skinGlow)"/>
+
+  <!-- Subtle cheek blush — very faint -->
+  <ellipse cx="148" cy="255" rx="28" ry="16" fill="#c8e8b0" opacity="0.18"/>
+  <ellipse cx="252" cy="255" rx="28" ry="16" fill="#c8e8b0" opacity="0.18"/>
+
+  <!-- Head highlight — top left sheen -->
+  <path d="M 168 82 C 178 74, 210 72, 228 82 C 218 78, 190 78, 168 82 Z"
+        fill="white" opacity="0.22"/>
+
+  <!-- ══ EYES ══ -->
+
+  <!-- Left eye glow bloom -->
+  <ellipse cx="155" cy="190" rx="52" ry="58" fill="url(#eyeGlowL)" opacity="0.5"/>
+  <!-- Right eye glow bloom -->
+  <ellipse cx="245" cy="190" rx="52" ry="58" fill="url(#eyeGlowR)" opacity="0.5"/>
+
+  <!-- Left eye — large almond, tilted slightly inward at top -->
+  <g filter="url(#eyeBloom)">
+    <ellipse cx="155" cy="192" rx="42" ry="50" fill="url(#irisL)" transform="rotate(-6 155 192)"/>
+    <!-- Iris ring -->
+    <ellipse cx="155" cy="192" rx="42" ry="50" fill="none" stroke="#2a6644" stroke-width="2" opacity="0.6" transform="rotate(-6 155 192)"/>
+    <!-- Pupil -->
+    <ellipse cx="155" cy="194" rx="28" ry="34" fill="#020c06" transform="rotate(-6 155 194)"/>
+    <!-- Main shine blob — top left -->
+    <ellipse cx="140" cy="172" rx="14" ry="10" fill="url(#shineL)" transform="rotate(-10 140 172)"/>
+    <!-- Small secondary shine -->
+    <ellipse cx="168" cy="178" rx="5" ry="4" fill="white" opacity="0.35"/>
+    <!-- Eye rim -->
+    <ellipse cx="155" cy="192" rx="42" ry="50" fill="none" stroke="#4aaa77" stroke-width="1.5" opacity="0.4" transform="rotate(-6 155 192)"/>
+  </g>
+
+  <!-- Right eye — mirror -->
+  <g filter="url(#eyeBloom)">
+    <ellipse cx="245" cy="192" rx="42" ry="50" fill="url(#irisR)" transform="rotate(6 245 192)"/>
+    <ellipse cx="245" cy="192" rx="42" ry="50" fill="none" stroke="#2a6644" stroke-width="2" opacity="0.6" transform="rotate(6 245 192)"/>
+    <ellipse cx="245" cy="194" rx="28" ry="34" fill="#020c06" transform="rotate(6 245 194)"/>
+    <ellipse cx="230" cy="172" rx="14" ry="10" fill="url(#shineR)" transform="rotate(10 230 172)"/>
+    <ellipse cx="258" cy="178" rx="5" ry="4" fill="white" opacity="0.35"/>
+    <ellipse cx="245" cy="192" rx="42" ry="50" fill="none" stroke="#4aaa77" stroke-width="1.5" opacity="0.4" transform="rotate(6 245 192)"/>
+  </g>
+
+  <!-- ── NOSE — two distinct teardrop nostrils ── -->
+  <ellipse cx="191" cy="270" rx="7" ry="5" fill="#4a6e48" opacity="0.85" transform="rotate(-15 191 270)"/>
+  <ellipse cx="209" cy="270" rx="7" ry="5" fill="#4a6e48" opacity="0.85" transform="rotate(15 209 270)"/>
+  <!-- Nostril inner shadow -->
+  <ellipse cx="191" cy="271" rx="4.5" ry="3" fill="#2a3e28" opacity="0.7" transform="rotate(-15 191 271)"/>
+  <ellipse cx="209" cy="271" rx="4.5" ry="3" fill="#2a3e28" opacity="0.7" transform="rotate(15 209 271)"/>
+
+  <!-- ── MOUTH — tiny gentle smile ── -->
+  <path d="M 182 292 Q 200 304 218 292"
+        fill="none" stroke="#7a9a78" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- ── Outer glow ring around whole head ── -->
+  <path d="
+    M 200 68
+    C 268 68, 318 108, 322 162
+    C 326 210, 310 248, 285 272
+    C 265 292, 238 308, 220 316
+    C 210 320, 200 322, 200 322
+    C 200 322, 190 320, 180 316
+    C 162 308, 135 292, 115 272
+    C 90 248, 74 210, 78 162
+    C 82 108, 132 68, 200 68
+    Z
+  " fill="none" stroke="#60e890" stroke-width="1.5" opacity="0.35" filter="url(#outerGlow)"/>
+
+  <!-- Animated eye pulse (subtle) -->
+  <ellipse cx="155" cy="192" rx="44" ry="52" fill="none" stroke="#7affc0" stroke-width="1" opacity="0" transform="rotate(-6 155 192)">
+    <animate attributeName="opacity" values="0;0.4;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    <animate attributeName="rx" values="44;50;44" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    <animate attributeName="ry" values="52;58;52" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+  </ellipse>
+  <ellipse cx="245" cy="192" rx="44" ry="52" fill="none" stroke="#7affc0" stroke-width="1" opacity="0" transform="rotate(6 245 192)">
+    <animate attributeName="opacity" values="0;0.4;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    <animate attributeName="rx" values="44;50;44" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    <animate attributeName="ry" values="52;58;52" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+  </ellipse>
+
+  <!-- Slow head glow pulse -->
+  <ellipse cx="200" cy="195" rx="115" ry="125" fill="none" stroke="#60e890" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;0.2;0" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="115;130;115" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="125;140;125" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+
+</svg>
