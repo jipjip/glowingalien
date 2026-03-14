@@ -1,0 +1,6 @@
+footer {
+  background-color: var(--col4);
+  color: var(--col3);
+  padding-block: 2rem;
+  padding-inline: 1rem;
+}
